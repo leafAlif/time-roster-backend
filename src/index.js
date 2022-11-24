@@ -1,8 +1,11 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getDatabase, ref, set } from 'firebase/database';
+import {
+  getDatabase, onValue, ref, set,
+} from 'firebase/database';
 import FIREBASECONFIG from './scripts/firebaseConfig';
 import loginHelper from './scripts/loginHelper';
+import addTask from './scripts/taskInputHelper';
 import './styles/main.css';
 
 // Initialize Firebase
@@ -17,9 +20,14 @@ const db = getDatabase(firebaseApp, 'https://time-roster-default-rtdb.asia-south
 onAuthStateChanged(auth, (user) => {
   if (user !== null) {
     const dbRef = ref(db, `user/${user.uid}`);
-    set(dbRef, {
-      taskId: new Date().toISOString(),
-      taskName: `${user.displayName} Task ${Math.random()}`,
+    const inputButton = document.querySelector('#input_task');
+    inputButton.onclick = () => {
+      set(dbRef, addTask());
+    };
+
+    onValue(dbRef, (snapshot) => {
+      const data = snapshot.val();
+      console.log(data);
     });
   } else {
     console.log('cant input, no user logged in');

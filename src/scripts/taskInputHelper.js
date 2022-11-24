@@ -1,9 +1,9 @@
 const addTask = () => {
   const taskId = new Date().toISOString();
-  const taskName = document.querySelector('task_name').value;
-  const taskUrgency = document.querySelector('task_urgency').value;
-  const taskImportance = document.querySelector('task-importance').value;
-  const taskSchedule = document.querySelector('task-schedule').value;
+  const taskName = document.querySelector('#task_name').value;
+  const taskUrgency = document.querySelector('#task_urgency').value;
+  const taskImportance = document.querySelector('#task_importance').value;
+  const taskSchedule = document.querySelector('#task_schedule').value;
   const taskDateAdded = new Date();
 
   const taskObject = {
@@ -15,7 +15,7 @@ const addTask = () => {
     taskDateAdded,
   };
 
-  return taskObject;
+  return (taskObject);
 };
 
 export default addTask;
