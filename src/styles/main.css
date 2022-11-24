@@ -1,0 +1,36 @@
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  margin: inherit;
+  padding: inherit;
+  box-sizing: inherit;
+}
+
+main {
+	display: grid;
+	justify-content: center;
+}
+
+button {
+  min-width: 70px;
+}
+
+.container {
+  border: 1px solid black;
+  margin-top: 10px;
+}
+
+.login_page {
+	display: flex;
+	flex-direction: column;
+  gap: 10px;
+	max-width: 500px;
+	align-items: center;
+  padding: 10px;
+}
