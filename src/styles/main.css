@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
+
 html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Lato', sans-serif;
 }
 
 *,
@@ -15,22 +18,44 @@ html {
 main {
 	display: grid;
 	justify-content: center;
+	grid-template-columns: 1fr 1fr;
+  margin: 10px 5px;
 }
 
 button {
   min-width: 70px;
+  max-width: 100px;
+  height: 24px;
 }
 
 .container {
+	display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+	justify-content: center;
   border: 1px solid black;
-  margin-top: 10px;
+  max-width: 500px;
 }
 
-.login_page {
+.container-title {
+  margin: 0;
+  padding: 0;
+  flex-basis: 100%;
+}
+
+.button-container {
+	width: 100%;
 	display: flex;
-	flex-direction: column;
-  gap: 10px;
-	max-width: 500px;
-	align-items: center;
-  padding: 10px;
+	justify-content: space-around;
+}
+
+.task-input-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.task-table {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  width:100%;
 }
