@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import {
-  getDatabase, onValue, ref, set, push,
+  getDatabase, onValue, ref, set, push, child,
 } from 'firebase/database';
 import FIREBASECONFIG from './scripts/firebaseConfig';
 import loginHelper from './scripts/loginHelper';
@@ -20,21 +20,20 @@ loginHelper(auth);
 const db = getDatabase(firebaseApp, 'https://time-roster-default-rtdb.asia-southeast1.firebasedatabase.app/');
 onAuthStateChanged(auth, (user) => {
   if (user !== null) {
-    const dbTaskRef = ref(db, `user/${user.uid}/tasks`);
+    const dbRef = ref(db, `user/${user.uid}/tasks`);
 
     const inputButton = document.querySelector('#input_task');
     inputButton.onclick = () => {
-      const newTaskRef = push(dbTaskRef);
+      const newTaskRef = push(dbRef);
       set(newTaskRef, addTask());
     };
 
-    onValue(dbTaskRef, (snapshot) => {
+    const taskRef = child(dbRef, '-NHjC5io1keiMnh12VOB/');
+    onValue(taskRef, (snapshot) => {
       const data = snapshot.val();
       const dataContainer = document.querySelector('.task-table');
       console.log(data);
-      Object.keys(data).forEach((task) => {
-        dataContainer.innerHTML += taskItemTemplate(task);
-      });
+      console.log(data.taskId);
     });
   } else {
     console.log('cant input, no user logged in');
