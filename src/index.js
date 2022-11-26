@@ -30,14 +30,14 @@ onAuthStateChanged(auth, (user) => {
       set(newTaskRef, addTask());
     };
 
-    // Temporary Task ID for Testing
-    const taskRef = child(dbRef, '-NHjC5io1keiMnh12VOB/');
-    onValue(taskRef, (snapshot) => {
-      const data = snapshot.val();
-      const dataContainer = document.querySelector('.task-table');
-      dataContainer.innerHTML += taskItemTemplate(data);
-      console.log(data);
-      console.log(data.taskId);
+    const dataContainer = document.querySelector('.task-table');
+
+    onValue(dbRef, (snapshot) => {
+      dataContainer.innerHTML = '';
+      snapshot.forEach((childSnapshot) => {
+        const childData = childSnapshot.val();
+        dataContainer.innerHTML += taskItemTemplate(childData);
+      });
     });
   } else {
     console.log('cant input, no user logged in');
