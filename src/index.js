@@ -30,10 +30,12 @@ onAuthStateChanged(auth, (user) => {
       set(newTaskRef, addTask());
     };
 
+    // Temporary Task ID for Testing
     const taskRef = child(dbRef, '-NHjC5io1keiMnh12VOB/');
     onValue(taskRef, (snapshot) => {
       const data = snapshot.val();
       const dataContainer = document.querySelector('.task-table');
+      dataContainer.innerHTML += taskItemTemplate(data);
       console.log(data);
       console.log(data.taskId);
     });

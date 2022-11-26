@@ -1,6 +1,6 @@
 const taskItemTemplate = (task) => /* html */ `
-<div>
-    <p>${task}</p>
+<div class="task-data">
+    <p>${task.taskName}</p>
     <p>${task.taskUrgency}</p>
     <p>${task.taskImportance}</p>
     <p>${task.taskSchedule}</p>
