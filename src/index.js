@@ -20,8 +20,10 @@ loginHelper(auth);
 const db = getDatabase(firebaseApp, 'https://time-roster-default-rtdb.asia-southeast1.firebasedatabase.app/');
 onAuthStateChanged(auth, (user) => {
   if (user !== null) {
+    // Get Database Reference
     const dbRef = ref(db, `user/${user.uid}/tasks`);
 
+    // Get Form Input and Push it into DB
     const inputButton = document.querySelector('#input_task');
     inputButton.onclick = () => {
       const newTaskRef = push(dbRef);
