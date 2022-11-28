@@ -61,5 +61,6 @@ button {
 
 .task-data {
   display: grid;
+  border: 1px solid black;
   grid-template-columns: repeat(4, 1fr);
 }
