@@ -38,16 +38,14 @@ onAuthStateChanged(auth, (user) => {
       snapshot.forEach((childSnapshot) => {
         const childData = childSnapshot.val();
         dataContainer.innerHTML += taskItemTemplate(childData);
+
+        // TODO: Get Data ID from DB and delete it
         const deleteButton = document.querySelector('#delete_task');
         deleteButton.onclick = () => {
-          console.log('delete button test');
+
         };
       });
     });
-
-    // Get Data ID from DB and delete it
-    const taskRef = child(dbRef, 'taskId');
-    console.log(taskRef);
   } else {
     console.log('cant input, no user logged in');
   }
