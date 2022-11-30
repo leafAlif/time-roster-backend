@@ -4,6 +4,7 @@ import {
   signOut,
   GoogleAuthProvider,
 } from 'firebase/auth';
+import { loginButton, loginStatus, logoutButton } from './utils/dom-shortcut';
 
 const loginHelper = (auth) => {
   // Use GoogleAuth as Login method
@@ -11,12 +12,12 @@ const loginHelper = (auth) => {
   loginProvider.addScope('https://www.googleapis.com/auth/contacts.readonly');
   loginProvider.setCustomParameters({ prompt: 'select_account' });
 
-  const loginStatus = document.querySelector('#login-status');
-  const loginButton = document.querySelector('#login-button');
-  const logoutButton = document.querySelector('#logout-button');
-
-  loginButton.onclick = () => signInWithPopup(auth, loginProvider);
-  logoutButton.onclick = () => signOut(auth);
+  loginButton.addEventListener('click', () => {
+    signInWithPopup(auth, loginProvider);
+  });
+  logoutButton.addEventListener('click', () => {
+    signOut(auth);
+  });
 
   onAuthStateChanged(auth, (user) => {
     if (user !== null) {

@@ -1,18 +1,25 @@
-const addTask = async () => {
-  const taskId = new Date().toISOString();
-  const taskName = document.querySelector('#task_name').value;
-  const taskUrgency = document.querySelector('#task_urgency').checked;
-  const taskImportance = document.querySelector('#task_importance').checked;
-  const taskSchedule = document.querySelector('#task_schedule').value;
-  const taskDateAdded = new Date().toDateString();
+import {
+  taskImportance,
+  taskName,
+  taskSchedule,
+  taskUrgency,
+} from './utils/dom-shortcut';
+
+const addTask = () => {
+  const id = new Date().toISOString();
+  const name = taskName.value;
+  const urgency = taskUrgency.checked;
+  const importance = taskImportance.checked;
+  const schedule = taskSchedule.value;
+  const dateAdded = new Date().toDateString();
 
   const taskObject = {
-    taskId,
-    taskName,
-    taskUrgency,
-    taskImportance,
-    taskSchedule,
-    taskDateAdded,
+    id,
+    name,
+    urgency,
+    importance,
+    schedule,
+    dateAdded,
   };
 
   return (taskObject);

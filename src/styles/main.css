@@ -63,4 +63,5 @@ button {
   display: grid;
   border: 1px solid black;
   grid-template-columns: repeat(4, 1fr);
+  cursor: pointer;
 }
