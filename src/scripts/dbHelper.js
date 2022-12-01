@@ -29,14 +29,9 @@ const dbHelper = (firebaseApp, auth) => {
         taskListContainer.innerHTML = '';
         snapshot.forEach((childSnapshot) => {
           const taskData = childSnapshot.val();
-          taskListContainer.append(taskItemTemplate(taskData));
-          // TODO: Get Data ID from DB and delete it
-          // const openTaskButton = document.querySelector(`[id="${taskData.id}"] #open_task`);
-          // openTaskButton.addEventListener('click', (e) => {
-          //   e.stopPropagation();
-          //   console.log(`${taskData.id} deleted`);
+          const taskKey = childSnapshot.key;
+          taskListContainer.append(taskItemTemplate(taskData, taskKey, db, user.uid));
           //   remove(ref(db, `user/${user.uid}/tasks/-NI1UW3EMYiwikcPCuCI`));
-          // });
         });
       });
     } else {

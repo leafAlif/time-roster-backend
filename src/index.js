@@ -16,4 +16,6 @@ window.addEventListener('load', () => {
 
   // ===== Realtime DB System =====
   dbHelper(firebaseApp, auth);
+
+  // ===== TODO: Add Task Pop-up =====
 });
