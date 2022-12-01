@@ -20,21 +20,6 @@
     </div>
 
     <div class="container">
-      <h1 class="container-title">Input Data</h1>
-      <form class="task-input-form">
-        <label for="task_name">Task Name:</label>
-        <input type="text" id="task_name">
-        <label for="task_urgency">Apa task ini Medesak?</label>
-        <input type="checkbox" id="task_urgency">
-        <label for="task_importance">Apa task ini Penting?</label>
-        <input type="checkbox" id="task_importance">
-        <label for="task_schedule">Scheduled ?</label>
-        <input type="date" id="task_schedule">
-        <button id="input_task" type="button">Input Task</button>
-      </form>
-    </div>
-
-    <div class="container">
       <h1 class="container-title">Output Data</h1>
       <ul id="task_container" class="task-table">
         <div class="task-table-header task-data">
@@ -47,6 +32,35 @@
     </div>
     </div>
   </main>
+
+  <div id="task_form_container" class="container popup hidden">
+    <h1 class="container-title">Input Data</h1>
+    <form class="form">
+      <div class="form-element">
+        <label for="task_name">Task Name</label>
+        <input id="task_name" type="text">
+      </div>
+      <div class="form-element">
+        <label for="task_urgency">Is this Task Urgent</label>
+        <input id="task_urgency" type="checkbox">
+      </div>
+      <div class="form-element">
+        <label for="task_importance">Is this Task Important</label>
+        <input id="task_importance" type="checkbox">
+      </div>
+      <div class="form-element">
+        <label for="task-detail">Task Details</label>
+        <textarea id="task_detail"></textarea>
+      </div>
+      <div class="form-element">
+        <label for="task_schedule">Schedule Task</label>
+        <input id="task_schedule" type="date">
+      </div>
+      <button id="input_task" type="button">Input Task</button>
+      <button id="update_task" type="button">Update Task</button>
+      <button id="delete_task" type="button">Delete Task</button>
+    </form>
+  </div>
 </body>
 
 </html>

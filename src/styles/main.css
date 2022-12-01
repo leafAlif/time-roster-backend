@@ -1,24 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
 
 html {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
   font-family: 'Lato', sans-serif;
 }
 
-*,
-*:before,
-*:after {
-  margin: inherit;
-  padding: inherit;
-  box-sizing: inherit;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 main {
-	display: grid;
-	justify-content: center;
-	grid-template-columns: 1fr 1fr;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
   margin: 10px 5px;
 }
 
@@ -29,34 +24,37 @@ button {
 }
 
 .container {
-	display: flex;
+  display: flex;
   flex-wrap: wrap;
   gap: 10px;
-	justify-content: center;
+  justify-content: center;
   border: 1px solid black;
   max-width: 500px;
 }
 
 .container-title {
-  margin: 0;
-  padding: 0;
+  text-align: center;
   flex-basis: 100%;
 }
 
 .button-container {
-	width: 100%;
-	display: flex;
-	justify-content: space-around;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
-.task-input-form {
+/* Form Styling */
+.form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+}
+
+.form-element {
+  display: grid;
 }
 
 .task-table {
   display: grid;
-  width:100%;
+  width: 100%;
 }
 
 .task-data {
@@ -64,4 +62,17 @@ button {
   border: 1px solid black;
   grid-template-columns: repeat(4, 1fr);
   cursor: pointer;
+}
+
+/* Reactive Styling */
+.popup {
+  position: absolute;
+  background: grey;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hidden {
+  display: none;
 }

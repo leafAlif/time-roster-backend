@@ -1,4 +1,5 @@
 import {
+  taskDetail,
   taskImportance,
   taskName,
   taskSchedule,
@@ -10,6 +11,7 @@ const addTask = () => {
   const name = taskName.value;
   const urgency = taskUrgency.checked;
   const importance = taskImportance.checked;
+  const detail = taskDetail.value;
   const schedule = taskSchedule.value;
   const dateAdded = new Date().toDateString();
 
@@ -18,6 +20,7 @@ const addTask = () => {
     name,
     urgency,
     importance,
+    detail,
     schedule,
     dateAdded,
   };

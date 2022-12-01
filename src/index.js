@@ -4,6 +4,7 @@ import FIREBASECONFIG from './scripts/firebaseConfig';
 import loginHelper from './scripts/loginHelper';
 import './styles/main.css';
 import dbHelper from './scripts/dbHelper';
+import { addTaskBtn, mainElement, taskFormContainer } from './scripts/utils/dom-shortcut';
 
 window.addEventListener('load', () => {
   // Initialize Firebase
@@ -17,5 +18,14 @@ window.addEventListener('load', () => {
   // ===== Realtime DB System =====
   dbHelper(firebaseApp, auth);
 
-  // ===== TODO: Add Task Pop-up =====
+  // ===== Add Task Pop-up =====
+  mainElement.addEventListener('click', (e) => {
+    taskFormContainer.classList.add('hidden');
+    e.stopPropagation();
+  });
+
+  addTaskBtn.addEventListener('click', (e) => {
+    taskFormContainer.classList.remove('hidden');
+    e.stopPropagation();
+  });
 });
