@@ -31,7 +31,6 @@ const dbHelper = (firebaseApp, auth) => {
           const taskData = childSnapshot.val();
           const taskKey = childSnapshot.key;
           taskListContainer.append(taskItemTemplate(taskData, taskKey, db, user.uid));
-          //   remove(ref(db, `user/${user.uid}/tasks/-NI1UW3EMYiwikcPCuCI`));
         });
       });
     } else {

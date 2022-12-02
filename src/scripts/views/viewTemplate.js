@@ -1,4 +1,5 @@
-import { remove, ref } from 'firebase/database';
+import { remove, ref, update } from 'firebase/database';
+import addTask from '../taskInputHelper';
 import {
   taskDeleteBtn,
   taskDetail,
@@ -20,6 +21,11 @@ const removeTask = (db, uid, taskKey) => {
     });
 };
 
+const updateTask = (db, uid, taskKey) => {
+  update(ref(db, `user/${uid}/tasks/${taskKey}`), addTask());
+  console.log('task updated');
+};
+
 // TODO: Implement Add Task Popup
 const openTask = (task, taskKey, db, uid) => {
   taskName.value = task.name;
@@ -35,7 +41,8 @@ const openTask = (task, taskKey, db, uid) => {
   });
 
   taskUpdateBtn.addEventListener('click', (e) => {
-    console.log('task updated');
+    console.log(db, uid, taskKey);
+    updateTask(db, uid, taskKey);
     e.stopPropagation();
   });
 };
